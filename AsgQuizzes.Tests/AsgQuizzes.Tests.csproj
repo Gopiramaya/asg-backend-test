@@ -52,7 +52,6 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="OOShapesTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuizzesTest.cs" />
   </ItemGroup>

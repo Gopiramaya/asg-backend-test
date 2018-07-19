@@ -9,11 +9,19 @@ namespace AsgQuizzes.Tests
     [TestClass]
     public class QuizzesTest
     {
+
         [TestMethod]
-        public void ReverseStringTest()
+        public void IsPalindrome1()
         {
             var qs = new Quizzes();
-            Assert.AreEqual("hola",qs.ReverseString("aloh"));
+            Assert.IsTrue(qs.IsPalindrome("Anna"));
+        }
+
+        [TestMethod]
+        public void IsPalindrome2()
+        {
+            var qs = new Quizzes();
+            Assert.IsFalse(qs.IsPalindrome("Store"));
         }
 
         [TestMethod]
@@ -38,47 +46,10 @@ namespace AsgQuizzes.Tests
         }
 
         [TestMethod]
-        public void PostfixCalc2()
-        {
-            var qs = new Quizzes();
-            Assert.AreEqual(106, qs.PostFixCalc("5 5 + ja10ja * 2r4 + +"));
-        }
-
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
-        public void PostfixCalcError()
-        {
-            var qs = new Quizzes();
-            Assert.AreEqual(106, qs.PostFixCalc("5 5 + ja10ja * 2r4 + + +"));
-        }
-
-        [TestMethod]
-        public void GetSatisfyingNumbersTest()
-        {
-            var qs = new Quizzes();
-            CollectionAssert
-                .AreEqual(new[] {3, 6, 9, 12, 15, 18}, qs.GetSatisfyingNumbers(20, n => n%3 == 0));
-        }
-
-        [TestMethod]
         public void GetOddNumbersTest()
         {
             var qs = new Quizzes();
             CollectionAssert.AreEqual(new[] { 1, 3, 5, 7, 9 }, qs.GetOddNumbers(10));
-        }
-
-        [TestMethod]
-        public void GetSecondBiggerNumberTest()
-        {
-            var qs = new Quizzes();
-            Assert.AreEqual(8, qs.GetSecondGreatestNumber(new[] {1, 3, 8, 10, 5, 7}));
-        }
-
-        [TestMethod]
-        public void FormatHexTest()
-        {
-            var qs = new Quizzes();
-            Assert.AreEqual("FFCC00", qs.FormatHex(255, 204, 0), true);
         }
 
         [TestMethod]
@@ -98,17 +69,6 @@ namespace AsgQuizzes.Tests
         }
 
         [TestMethod]
-        public void GetExamFromStringTest()
-        {
-            var examStr = @"{""Student"" : ""lluis"", ""Score"" : ""9.0""}";
-            var qs = new Quizzes();
-            var ret = qs.GetExamFromString(examStr);
-            Assert.AreEqual("lluis", ret.Student);
-            Assert.AreEqual(9.0m, ret.Score);
-        }
-
-
-        [TestMethod]
         public void GenerateBoard1()
         {
             var strInput = " o x    x";
@@ -122,37 +82,7 @@ namespace AsgQuizzes.Tests
 "
 , qs.GenerateBoard(strInput));
         }
-
-        [TestMethod]
-        public void GenerateBoard2()
-        {
-            var strInput = "ooooooooo";
-            var qs = new Quizzes();
-            Assert.AreEqual(@"
- O | O | O 
------------
- O | O | O 
------------
- O | O | O 
-"
-, qs.GenerateBoard(strInput));
-        }
-
-        [TestMethod]
-        public void GenerateBoard3()
-        {
-            var strInput = "ooxoxoxoo";
-            var qs = new Quizzes();
-            Assert.AreEqual(@"
- O | O | X 
------------
- O | X | O 
------------
- X | O | O 
-"
-, qs.GenerateBoard(strInput));
-        }
-
+        
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
         public void GenerateBoardError()
@@ -161,37 +91,5 @@ namespace AsgQuizzes.Tests
             var qs = new Quizzes();
             var ret = qs.GenerateBoard(strInput);
         }
-
-        [TestMethod]
-        public void ParseBoard()
-        {
-            var strInput =
-                @"
-   | O | X 
------------
-   | X | O 
------------
-   | O | O 
-";
-            var qs = new Quizzes();
-            Assert.AreEqual(" ox xo oo", qs.ParseBoard(strInput));
-        }
-
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
-        public void ParseBoardError()
-        {
-            var strInput =
-                @"
-   | O |
------------
-   |
------------
-   | O | O 
-";
-            var qs = new Quizzes();
-            var ret = qs.ParseBoard(strInput);
-        }
-
     }
 }

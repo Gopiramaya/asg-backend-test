@@ -10,52 +10,31 @@ namespace AsgQuizzes
     /// </summary>
     public class Quizzes
     {
-        public string ReverseString(string str)
+        /// Expected time to resolve: 2 minutes
+        public bool IsPalindrome(string str)
         {
             throw new NotImplementedException();
         }
 
-        public int[] GetSatisfyingNumbers(int limit, Func<int,bool> filter)
-        {
-            throw new NotImplementedException();
-        }
-
+        /// Expected time to resolve: 2 minutes
         public int[] GetOddNumbers(int n)
         {
-            // HINT: This method must be implemented with a call this.GetSatisfyingNumbers
             throw new NotImplementedException();
         }
 
-        public int GetSecondGreatestNumber(int[] arr)
-        {
-            throw new NotImplementedException();
-        }
-
-        public string FormatHex(byte r, byte g, byte b)
-        {
-            throw new NotImplementedException();
-        }
-
+        /// Expected time to resolve: 5 minutes
         public string[] OrderByAvgScoresDescending(IEnumerable<Exam> exams)
         {
             throw new NotImplementedException();
         }
 
-        public Exam GetExamFromString(string examStr)
-        {
-            throw new NotImplementedException();
-        }
-
+        /// Expected time to resolve: 15 minutes
         public string GenerateBoard(string strInput)
         {
             throw new NotImplementedException();
         }
 
-        public string ParseBoard(string strInput)
-        {
-            throw new NotImplementedException();
-        }
-
+        /// Expected time to resolve: 60 minutes
         public int PostFixCalc(string s)
         {
             throw new NotImplementedException();
